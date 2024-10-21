@@ -131,18 +131,117 @@ console.log(evens); // Output: [2, 4]
 
 - `filter()` is often used when you want to reduce an array based on a condition. It's great for removing unwanted values or selecting specific ones.
 
+
 ### 3. Loops (Review and Expansion)
 
-**`for` Loop:**
+**`for...of` Loop**
 
-The `for` loop is a basic looping structure in JavaScript. It's typically used when you know how many times you want to iterate.
+Introduced in ES6, the `for...of` loop allows you to iterate over arrays or other iterable objects. It's simpler and often more readable than traditional `for` loops when working with arrays and strings. The `for...of` loop focuses on the **values** of the elements rather than their indices.
 
 **Syntax:**
 
 ```javascript
 const numbers = [1, 2, 3];
 for (let num of numbers) {
-    console.log(num); // Output: 1, 2, 3
+  console.log(num); // Output: 1, 2, 3
+}
+```
+
+**Deeper Dive:**
+
+- Prefer `for...of` loops for iterating over arrays and strings as it improves readability.
+- It's not suitable for objects (unless the object is specifically designed to be iterable).
+
+### 4. Higher-Order Functions
+
+**What are Higher-Order Functions?**
+
+A higher-order function is a function that:
+
+* Takes another function as an argument (**function as parameter**).
+* Returns a function as its result (**function as return value**).
+
+This is an important concept in functional programming and is widely used with array methods like `map()`, `filter()`, and `forEach()`.
+
+**Example:**
+
+```javascript
+function greet(name) {
+  console.log("Hello " + name);
 }
 
-Deeper dive: for...of is simpler and more readable than traditional for loops when working with arrays and strings. It focuses on values rather than indices.
+function callGreet(func) {
+  func("Alice");
+}
+
+callGreet(greet); // Output: Hello Alice
+```
+
+Here, `callGreet()` takes another function `greet` as its argument and executes it. This demonstrates the essence of higher-order functions.
+
+**Example with `map()`:**
+
+```javascript
+const numbers = [1, 2, 3];
+const squares = numbers.map(function(num) {
+  return num * num;
+});
+console.log(squares); // Output: [1, 4, 9]
+```
+
+In this case, `map()` is a higher-order function because it takes a function as an argument (the anonymous function that squares each number).
+
+### Homework
+
+**Easy:**
+
+**Task:** Write a function that takes an array of numbers and prints each number multiplied by 2 using `forEach()`.
+
+**Test:** Try this with an array of `[1, 2, 3, 4]`.
+
+```javascript
+function printDoubled(numbers) {
+  numbers.forEach(function(number) {
+    console.log(number * 2);
+  });
+}
+
+const myNumbers = [1, 2, 3, 4];
+printDoubled(myNumbers);
+```
+
+**Medium:**
+
+**Task:** Write a function that takes an array of numbers and returns a new array where each number is doubled using `map()`.
+
+**Test:** Use `[2, 4, 6]` and expect `[4, 8, 12]`.
+
+```javascript
+function doubleNumbers(numbers) {
+  return numbers.map(function(number) {
+    return number * 2;
+  });
+}
+
+const myNumbers = [2, 4, 6];
+const doubledNumbers = doubleNumbers(myNumbers);
+console.log(doubledNumbers); // Output: [4, 8, 12]
+```
+
+**Hard:**
+
+**Task:** Write a function `filterEvens` that takes an array of numbers and returns only the even numbers using `filter()`.
+
+**Test:** Use `[1, 2, 3, 4]` and expect `[2, 4]`.
+
+```javascript
+function filterEvens(numbers) {
+  return numbers.filter(function(number) {
+    return number % 2 === 0;
+  });
+}
+
+const myNumbers = [1, 2, 3, 4];
+const evenNumbers = filterEvens(myNumbers);
+console.log(evenNumbers); // Output: [2, 4]
+```
