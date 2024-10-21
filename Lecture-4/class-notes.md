@@ -199,34 +199,12 @@ In this case, `map()` is a higher-order function because it takes a function as 
 
 **Test:** Try this with an array of `[1, 2, 3, 4]`.
 
-```javascript
-function printDoubled(numbers) {
-  numbers.forEach(function(number) {
-    console.log(number * 2);
-  });
-}
-
-const myNumbers = [1, 2, 3, 4];
-printDoubled(myNumbers);
-```
-
 **Medium:**
 
 **Task:** Write a function that takes an array of numbers and returns a new array where each number is doubled using `map()`.
 
 **Test:** Use `[2, 4, 6]` and expect `[4, 8, 12]`.
 
-```javascript
-function doubleNumbers(numbers) {
-  return numbers.map(function(number) {
-    return number * 2;
-  });
-}
-
-const myNumbers = [2, 4, 6];
-const doubledNumbers = doubleNumbers(myNumbers);
-console.log(doubledNumbers); // Output: [4, 8, 12]
-```
 
 **Hard:**
 
@@ -234,14 +212,3 @@ console.log(doubledNumbers); // Output: [4, 8, 12]
 
 **Test:** Use `[1, 2, 3, 4]` and expect `[2, 4]`.
 
-```javascript
-function filterEvens(numbers) {
-  return numbers.filter(function(number) {
-    return number % 2 === 0;
-  });
-}
-
-const myNumbers = [1, 2, 3, 4];
-const evenNumbers = filterEvens(myNumbers);
-console.log(evenNumbers); // Output: [2, 4]
-```
